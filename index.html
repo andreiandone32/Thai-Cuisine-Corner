@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <title>Thai Cuisine Corner</title>
+    <link rel="shortcut icon" href="./media/favIcon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="animation.css  ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"></script>
+  <body>
+    <nav class="navbar">
+      <div class="logo"><a href="#"><img src="./media/favIcon.png" alt=""></a></div>
+      <ul class="menu">
+        <li id="menuList"><a href="index.html">HOME</a></li>
+        <li id="menuList"><a href="../Menu.html">MENU</a></li>
+        <li id="menuList"><a target="_blank" href="https://www.facebook.com/profile.php?id=61558754518379"> <i class="fa-brands fa-facebook"></i>  Thai Cuisine</a> </li>
+        <li id="menuList"><a target="_blank" href="https://www.instagram.com/thaicuisinecorner/"> <i class="fa-brands fa-instagram"></i>  Thai Cuisine</a> </li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="hero-text">
+        <h1 class="hero-title">Thai Cuisine Corner</h1>
+        <h2 class="hero-subTitle"> Street Food</h2>
+      </div>
+    </div>
+ <secton class="about">
+    <img src="./media/StoreImage.jpg" alt="" class="store-img">
+    <div class="about-content">
+      <div class="about-info">
+        <dl>
+          <dt class="about-title">About Us</dt>
+          <dd>Thai Cuisine Corner offers an authentic taste of Thailand with every dish. From the tangy, aromatic flavors of Tom Yum soup to the rich, creamy curries, our menu brings the best of Thai cuisine to your table. Each meal is made using fresh, locally sourced ingredients and traditional recipes, ensuring a delightful culinary experience.</dd>
+          <dt class="about-title">Contact Us</dt>
+          <dd>
+            <button class="button">
+              <a id="phone" href="tel:+441253850028"><i class="fa-solid fa-phone"></i> 01253 850028</a>
+            </button>
+            <dd>
+              <button class="button">
+                <a target="_blank" id="location" href="https://www.google.com/maps/place/Thai+Cuisine+Corner/@53.8721898,-3.0421247,17z/data=!4m6!3m5!1s0x487b4387b21d6ecb:0x9d685c745dbc7409!8m2!3d53.8720664!4d-3.04209!16s%2Fg%2F11y44kg38k?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D">
+                  <i class="fa-solid fa-location-dot"></i> Visit our location
+                </a>
+              </button>
+            </dd>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </secton>
+    
+  <section class="gallery">
+    <h1 class="gallery-title">Our Gallery </h1>
+    <div class="container">
+      <div class="card">
+        <img src="./media/food/CHICHEN SATAY.jpg" alt="chicken satay">
+        <div class="overlay">Chicken Satay</div>
+    </div>
+  
+    <div class="card">
+        <img src="./media/food/GREEN CURRY.jpg" alt="Green Curry">
+        <div class="overlay">Green Curry</div>
+    </div>
+  
+    <div class="card">
+        <img src="./media/food/PAD CHOW.jpg" alt="pad chow">
+        <div class="overlay">Pad Chow</div>
+    </div>
+  
+    <div class="card">
+        <img src="./media/food/PAD THAI.jpg" alt="Pad Thai">
+        <div class="overlay">Pad Thai</div>
+    </div>
+  
+    <div class="card">
+        <img src="./media/food/PRAWN TEMPURA.jpg" alt="Prawn Tempura">
+        <div class="overlay">Prawn Tempura</div>
+    </div>
+  
+    <div class="card">
+        <img src="./media/food/STIR FRY CASHEW.jpg" alt="Stir Fry Cashew">
+        <div class="overlay">Stir Fry Cashew</div>
+    </div>
+    </div>
+    <h3 class="welcome">In the business of making beautiful memories with every plate.</h3>
+    <h3 class="welcome">Let's make some new ones together!</h3>
+  </section>
+  <section class="ratings-section">
+    <h2>What Our Clients Say</h2>
+    <div class="ratings-grid" id="ratingsGrid"></div>
+  </section>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <img id="modalAvatar" src="" alt="Client" />
+      <h3 id="modalName"></h3>
+      <div id="modalStars" class="stars"></div>
+      <p id="modalComment"></p>
+    </div>
+  </div>
+  <div class="reviewBtnContainer" >
+    <a href="https://www.google.com/search?sa=X&sca_esv=867854f6d6c0c082&tbm=lcl&q=reviews%20pentru%20thai%20cuisine%20corner&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDQ2MTIxNDc2NDO2NDS0MDcxM93AyPiKUbkoNTk1ryozU6EgNa-kqFShJCMxUyG5NLM4My9VITm_KC-1aBErMaoAPTRYymcAAAA&rldimm=11342417316391187465&hl=en-EN&ved=0CAgQ5foLahcKEwjI2qOj4cqMAxUAAAAAHQAAAAAQDA#lkt=LocalPoiReviews&arid=ChZDSUhNMG9nS0VJQ0FnTUR3eDRMWU5BEAE" class="reviewButton" target="_blank" style="text-decoration: none; text-align: center;">Let us know <br> what do you think!</a>
+  </div>
+   <footer class="footer">
+    <div>© Thai Cuisine Corner. All rights reserved.</div>
+    <div class="footer-enjoy">Come to enjoy our food !</div>
+    <div class="footer-links">
+      <i class="fa-brands fa-facebook"></i><a href="https://www.facebook.com/profile.php?id=61558754518379" target="_blank">Thai CuisineCorner</a>
+      <i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/thaicuisinecorner/" target="_blank">Thai CuisineCorner</a>
+    </div>
+</footer>
+    <script defer src="script.js"></script>
+  </body>
+</html> 
