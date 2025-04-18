@@ -716,6 +716,7 @@ dl {
 }
 .card:hover {
   transform: scale(1.05);
+  cursor: default;
 }
 .card img {
   width: 100%;
