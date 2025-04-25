@@ -116,20 +116,3 @@ document.addEventListener("DOMContentLoaded", () => {
   categories.forEach((category) => observer.observe(category));
 });
 
-document
-  .getElementById("testimonialForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-    const name = document.getElementById("name").value;
-    const rating = document.getElementById("rating").value;
-    const comment = document.getElementById("commet").value;
-
-    const reviewItem = document.createElement("li");
-    reviewItem.innerHTML = `<strong>${name}</strong> - ${"⭐".repeat(
-      rating
-    )}<br>${comment}`;
-
-    document.getElementById("reviews").appendChild(reviewItem);
-
-    document.getElementById("testimonialForm").reset();
-  });
