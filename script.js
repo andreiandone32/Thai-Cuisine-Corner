@@ -22,7 +22,7 @@ window.addEventListener("scroll", function () {
 // EMAIL BUTTON
 
 document.getElementById("sendEmailBtn").addEventListener("click", function () {
-  const email = "andoneandrei99@gmail.com";
+  const email = "thaicuisinecorner@gmail.com";
   const subject = "";
   const body = "";
 
