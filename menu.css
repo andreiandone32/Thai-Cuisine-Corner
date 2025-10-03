@@ -34,62 +34,79 @@ body {
 
 /* navbar section */
 .navbar {
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 15px 30px;
   background: transparent;
-  transition: background 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out, background 0.3s ease-in-out;
   z-index: 1000;
+}
+
+.navbar.hide {
+  top: -100px;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .logo {
   width: 100px;
   height: auto;
 }
+
 .logo img {
-  width: 100%;
+  width: 75%;
   height: auto;
   display: block;
 }
+
 .menu {
   display: flex;
   list-style: none;
 }
+
 .menu li {
   margin: 0 15px;
-  letter-spacing: 0.5px;
-  position: relative;
 }
+
 .menu a {
   text-decoration: none;
   color: var(--main-color);
   font-size: 18px;
   transition: color 0.3s ease-in-out;
   position: relative;
+  padding: 5px 10px;
+  display: inline-block;
 }
+
 .menu a::after {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 0;
   bottom: -5px;
-  width: 0;
+  width: 100%;
   height: 2px;
   background: var(--main-color);
-  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
 }
+
 .menu a:hover {
   color: var(--third-color);
 }
+
 .menu a:hover::after {
-  width: 100%;
-  left: 0;
+  transform: scaleX(1);
 }
 
+/* HAMBURGER */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -97,16 +114,27 @@ body {
   gap: 5px;
   z-index: 1100;
 }
+
 .hamburger div {
   width: 30px;
   height: 3px;
   background: var(--main-color);
   transition: all 0.3s ease-in-out;
 }
-.hamburger:hover div {
-  background: var(--third-color);
+
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .menu {
     display: flex;
@@ -114,55 +142,40 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     width: 100%;
-    height: auto;
+    height: 63vh;
     text-align: center;
     transform: translateY(-100%);
     opacity: 0;
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    justify-content: space-between;
   }
 
   .menu.show {
     transform: translateY(0);
     opacity: 1;
   }
+
   .menu li {
     margin: 20px 0;
   }
+
   .menu a {
-    color: var(--main-color);
     font-size: 20px;
-    transition: background 0.3s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
   }
+
   .menu a i {
     margin-right: 5px;
   }
-  .menu a:hover {
-    color: var(--third-color);
-    border-radius: 5px;
-  }
+
   .hamburger {
     display: flex;
-  }
-  .hamburger.active div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .hamburger.active div:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
   }
 }
 
 @media (max-width: 345px) {
   .menu {
-    width: 100%;
     height: 82vh;
   }
 }
