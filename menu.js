@@ -50,6 +50,7 @@ history.scrollRestoration = "manual";
       });
     });
 
+
 document.addEventListener("DOMContentLoaded", function () {
   const aboutSection = document.querySelector(".about");
   function handleScroll() {
@@ -128,4 +129,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   categories.forEach((category) => observer.observe(category));
 });
-

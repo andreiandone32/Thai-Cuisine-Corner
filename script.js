@@ -1,22 +1,87 @@
 history.scrollRestoration = "manual";
-
 function toggleMenu() {
   const menu = document.querySelector(".menu");
   const hamburger = document.querySelector(".hamburger");
-  if (menu.classList.contains("show")) {
-    menu.style.transition =
-      "transform 0.2s ease-in-out, opacity 0.2s ease-in-out";
-  } else {
-    menu.style.transition =
-      "transform 0.15s ease-in-out, opacity 0.15s ease-in-out";
-  }
   menu.classList.toggle("show");
   hamburger.classList.toggle("active");
 }
-window.addEventListener("scroll", function () {
-  document
-    .querySelector(".navbar")
-    .classList.toggle("scrolled", window.scrollY > 50);
+
+// Închide meniul la click pe link (responsive)
+document.querySelectorAll(".menu a").forEach((link) => {
+  link.addEventListener("click", () => {
+    const menu = document.querySelector(".menu");
+    const hamburger = document.querySelector(".hamburger");
+    if (menu.classList.contains("show")) {
+      menu.classList.remove("show");
+      hamburger.classList.remove("active");
+    }
+  });
+});
+
+// Scroll behavior navbar
+let lastScrollY = window.scrollY;
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  // Fundal navbar după scroll 50px
+  if (currentScrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+
+  // Arată/ascunde navbar la scroll up/down
+  if (currentScrollY > lastScrollY) {
+    // scroll down
+    navbar.classList.add("hide");
+  } else {
+    // scroll up
+    navbar.classList.remove("hide");
+  }
+
+  lastScrollY = currentScrollY;
+});
+
+document.addEventListener("click", (e) => {
+  const menu = document.querySelector(".menu");
+  const hamburger = document.querySelector(".hamburger");
+  const logo = document.querySelector(".logo");
+
+  if (
+    menu.classList.contains("show") &&
+    !menu.contains(e.target) &&
+    !hamburger.contains(e.target)
+  ) {
+    menu.classList.remove("show");
+    hamburger.classList.remove("active");
+    logo.style.opacity = "1";
+    logo.style.pointerEvents = "auto";
+  }
+});
+// Smooth scrolling pentru ancore
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const targetID = this.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetID);
+    if (targetElement) {
+      e.preventDefault();
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  });
 });
 
 // EMAIL BUTTON
@@ -34,7 +99,6 @@ document.getElementById("sendEmailBtn").addEventListener("click", function () {
 
   window.location.href = mailtoLink;
 });
-
 
 // EMAIL BUTTON
 
