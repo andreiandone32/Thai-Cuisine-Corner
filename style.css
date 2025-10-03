@@ -671,7 +671,6 @@ dl {
 /*review */
 
 /* gallery section */
-
 .gallery-title,
 .gallery-subTitle {
   text-align: center;
@@ -685,6 +684,8 @@ dl {
   font-size: 1.2rem;
   font-family: "Vidaloka";
 }
+
+
 .welcome {
   display: flex;
   justify-content: center;
@@ -692,12 +693,17 @@ dl {
   margin: 1rem;
 }
 
+
 .container {
-  padding: 24px 24px 10px 24px;
+  padding: 24px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 30px; 
+  max-width: 75rem; 
+  margin: 0 auto; 
 }
+
+
 .card {
   font-family: "Urbanist";
   position: relative;
@@ -708,22 +714,30 @@ dl {
   opacity: 0;
   transform: translateY(50px);
   aspect-ratio: 1/1;
+  max-width: 500px; 
+  margin: 0 auto; 
 }
+
 .card.visible {
   opacity: 1;
   transform: translateY(0);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
+
 .card:hover {
   transform: scale(1.05);
   cursor: default;
 }
+
+
 .card img {
   width: 100%;
   height: 100%;
+  object-position: center;
   object-fit: cover;
   display: block;
 }
+
 .overlay {
   position: absolute;
   top: 0;
@@ -741,22 +755,22 @@ dl {
   transition: opacity 0.3s ease;
   border-radius: 12px;
 }
+
 .card:hover .overlay {
   opacity: 1;
   background: rgba(0, 0, 0, 0.6);
 }
 
+
 @media (max-width: 992px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
   }
 }
 
 @media (max-width: 600px) {
   .container {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
   }
 
   .welcome {
