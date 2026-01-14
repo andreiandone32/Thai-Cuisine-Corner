@@ -164,6 +164,28 @@ revealGalleryCards();
 // rating form
 const reviews = [
   {
+    name: "Batagui Liviu",
+    stars: 5,
+    comment: "Best thay food I ever had, the pad thay its outstanding.",
+    avatar:
+      "https://lh3.googleusercontent.com/a/ACg8ocIcC5obACuuvTIjEXeaJYCw4jV2peZZtZCQ49z-D2of4Kvgvg=s36-c-rp-mo-br100",
+  },
+  {
+    name: "Darrell Till",
+    stars: 5,
+    comment:
+      "Very impressed with this takeaway. Tried the pork dumplings, Pad Chow Mein, Panang Curry and a Thai Red Curry. Everything was delicious and fresh tasting. Reasonable price, too.",
+    avatar:
+      "https://lh3.googleusercontent.com/a/ACg8ocKa5t2JWa58ssbdgkDgVEpSuzwDeL99B5rah-8kMj78h2_KGP7c=s36-c-rp-mo-ba4-br100",
+  },
+  {
+    name: "Catalin Lucian",
+    stars: 5,
+    comment: "Amazing food and always in time,❤️",
+    avatar:
+      "https://lh3.googleusercontent.com/a/ACg8ocL6qZlScAAWSfH_NpAiBSmZhGgJORXYCPxMq-VwwD0OuRQuSg=s36-c-rp-mo-br100",
+  },
+  {
     name: "Bex Olori",
     stars: 5,
     comment:
