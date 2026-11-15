@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://andreiandone32.github.io/Thai-Cuisine-Corner/sitemap.xml
